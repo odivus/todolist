@@ -1,15 +1,35 @@
 html {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #F5F5F5;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
 }
 
 body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+h2 {
+  font-family: Times New Roman, Times, serif;
+}
+
+h6 {
+  font-weight: normal;
+  margin: 0 0 4px 0;
+  line-height: 13px;
+}
+
+label, h6 {
+  font-size: 0.8rem;
+}
+
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
 }

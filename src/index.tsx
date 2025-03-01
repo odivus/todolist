@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import Form from './components/Form/Form';
 import styled from 'styled-components';
 import './style.css';
 
-const Wrap = styled.section`
+const Wrap = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
-  width: 620px;
+  width: 600px;
   margin: 0 auto;
 `;
 
 const App: React.FC = () => (
   <Wrap>
-    Hello world!
+    <h2>Добавление задач</h2>
+    <Form />
   </Wrap>
 );
 
