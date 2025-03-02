@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Form from './components/Form/Form';
+import FormAdd from './components/Forms/FormAdd';
 import ListItem from './components/ListItem/ListItem';
 import Control from './components/Control/Control';
 import PopUp from './components/Ui/PopUp/PopUp';
@@ -19,7 +19,7 @@ const App: React.FC = () => (
     <PopUp />
     <Wrap>
       <h2>Добавление задач</h2>
-      <Form />
+      <FormAdd />
       <h2 style={{marginTop: '34px'}}>Задачи</h2>
       <Control />
       <ListItem />

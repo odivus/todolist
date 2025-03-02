@@ -28,7 +28,6 @@ const InputText: React.FC = () => {
       id='name'
       name='name'
       value={value}
-      autoFocus
       onChange={handleChange}
     />
   );

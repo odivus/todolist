@@ -3,27 +3,9 @@ import InputText from '../Ui/InputText/InputText';
 import TextArea from '../Ui/TextArea/TextArea';
 import SelectPriority from '../SelectPriority/SelectPriority'
 import Button from '../Ui/Button/Button';
-import styled from 'styled-components';
+import { FormWrap, TextAreaWrap, FormFooter } from './styles.js';
 
-const FormWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 440px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-`;
-
-const TextAreaWrap = styled.div`
-  margin: 10px 0 7px 0;
-`;
-
-const FormFooter = styled.div`
-  display: flex;
-  width: 100%;
-`;
-
-const FormEdit: React.FC = () => {
+const FormAdd: React.FC = () => {
   return (
     <FormWrap>
       <form>
@@ -38,12 +20,7 @@ const FormEdit: React.FC = () => {
           <SelectPriority />
           <Button
             type={'primary'}
-            text={'Сохранить'}
-            handleClick={() => {}}
-          />
-          <Button
-            type={'secondary'}
-            text={'Отмена'}
+            text={'Добавить задачу'}
             handleClick={() => {}}
           />
         </FormFooter>
@@ -52,4 +29,4 @@ const FormEdit: React.FC = () => {
   );
 }
 
-export default FormEdit;
+export default FormAdd;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormEdit from '../../Form/FormEdit';
+import FormEdit from '../../Forms/FormEdit';
 import styled from 'styled-components';
 
 const StyledPopUp = styled.div`
