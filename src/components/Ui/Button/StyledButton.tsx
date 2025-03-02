@@ -22,6 +22,7 @@ export const StyledButton = styled.button<ButtonType>`
   color: white;
   border-radius: 4px;
   padding: 4px 8px;
+  margin-left: 10px;
   outline: none;
   cursor: ${({ type }) => type === 'disabled' ? 'not-allowed' : 'pointer'};
   opacity: ${({ type }) => type === 'disabled' ? 0.5 : 1};
