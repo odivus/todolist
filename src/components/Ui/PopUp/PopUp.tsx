@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Form from '../../Form/Form';
+import FormEdit from '../../Form/FormEdit';
 import styled from 'styled-components';
 
 const StyledPopUp = styled.div`
@@ -20,7 +20,7 @@ const StyledPopUp = styled.div`
 const PopUp: React.FC = () => {
   return (
     <StyledPopUp>
-      <Form />
+      <FormEdit />
     </StyledPopUp>
   );
 }
