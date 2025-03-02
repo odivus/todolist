@@ -3,13 +3,13 @@ import SelectPriority from '../SelectPriority/SelectPriority';
 import Select from '../Ui/Select/Select'
 
 const SelectFilter: React.FC = () => {
-  const [priority, setPriority] = useState<'any'|'low' | 'medium' | 'high'>('any')
+  const [priority, setPriority] = useState<'all'|'low' | 'medium' | 'high'>('all')
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPriority(e.target.value as 'any'|'low' | 'medium' | 'high');
+    setPriority(e.target.value as 'all'|'low' | 'medium' | 'high');
   }
 
   const options = {
-    any: 'Любой',
+    all: 'Все',
     low: 'Низкий',
     medium: 'Средний',
     high: 'Высокий',
