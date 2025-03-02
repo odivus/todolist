@@ -10,13 +10,13 @@ import './style.css';
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: fit-content;
   margin: 0 auto;
 `;
 
 const App: React.FC = () => (
   <>
-    <PopUp />
+    {/*<PopUp />*/}
     <Wrap>
       <h2>Добавление задач</h2>
       <FormAdd />
