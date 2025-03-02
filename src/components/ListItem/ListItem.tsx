@@ -8,7 +8,7 @@ const ListItemWrap = styled.div`
   display: flex;
   width: 440px;
   padding: 20px;
-  margin: 10px 0;
+  margin: 0 0 10px 0;
   background-color: white;
   border-radius: 8px;
 `;

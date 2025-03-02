@@ -7,7 +7,7 @@ const ControlWrap = styled.div`
   display: flex;
   width: 440px;
   padding: 20px;
-  margin-top: 20px;
+  margin: 0 0 20px 0;
   background-color: white;
   border-radius: 8px;
 `;

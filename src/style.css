@@ -15,6 +15,10 @@ body {
   overflow: auto;
 }
 
+h2 {
+  margin-bottom: 12px;
+}
+
 h5 {
   font-size: 0.9rem;
   margin: 0 0 5px 0;
