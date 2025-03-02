@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Form from './components/Form/Form';
 import ListItem from './components/ListItem/ListItem';
 import Control from './components/Control/Control';
+import PopUp from './components/Ui/PopUp/PopUp';
 import styled from 'styled-components';
 import './style.css';
 
@@ -14,13 +15,16 @@ const Wrap = styled.div`
 `;
 
 const App: React.FC = () => (
-  <Wrap>
-    <h2>Добавление задач</h2>
-    <Form />
-    <h2 style={{marginTop: '34px'}}>Задачи</h2>
-    <Control />
-    <ListItem />
-  </Wrap>
+  <>
+    <PopUp />
+    <Wrap>
+      <h2>Добавление задач</h2>
+      <Form />
+      <h2 style={{marginTop: '34px'}}>Задачи</h2>
+      <Control />
+      <ListItem />
+    </Wrap>
+  </>
 );
 
 // @ts-ignore
