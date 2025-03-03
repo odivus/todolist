@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import FormAdd from './components/Forms/FormAdd';
 import ListItem from './components/ListItem/ListItem';
 import Control from './components/Control/Control';
@@ -30,4 +32,10 @@ const App: React.FC = () => (
 // @ts-ignore
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
