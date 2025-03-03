@@ -11,3 +11,8 @@ export interface HeaderType {
   completed: boolean;
 }
 
+export interface EditData {
+  id: string;
+  isEdit: boolean;
+}
+

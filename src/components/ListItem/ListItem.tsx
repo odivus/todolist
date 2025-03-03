@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import { addTodo, removeTodo, setTodoStatus } from '../../redux/todoSlice';
+import { AppDispatch } from '../../redux/store';
+import { removeTodo, setTodoStatus } from '../../redux/todoSlice';
+import { toggleIsEdit } from '../../redux/editSlice';
 
-import Checkbox from '../Ui/Checkbox/Checkbox';
 import Edit from '../Ui/Edit/Edit';
+import Checkbox from '../Ui/Checkbox/Checkbox';
 import Delete from '../Ui/Delete/Delete';
 
-import { ListItemProps } from './interfaces';
+import { ListItemProps, EditData } from './interfaces';
 import {
   ListItemWrap,
   ContentWrap,
@@ -35,6 +36,14 @@ const ListItem: React.FC<ListItemProps> = (props) => {
     );
   }
 
+  const handleEdit = () => {
+    const edit: EditData = {
+      id: id,
+      isEdit: true,
+    };
+    dispatch(toggleIsEdit(edit));
+  };
+
   return (
     <ListItemWrap>
       <Checkbox
@@ -48,7 +57,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
         <Description>{description}</Description>
       </ContentWrap>
       <IconsWrap>
-        <Edit />
+        <Edit onClick={handleEdit} />
         <Delete />
       </IconsWrap>
     </ListItemWrap>

@@ -1,13 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = false;
+const initialState = {
+  isEdit: false,
+  id: '',
+};
+
+interface Edit{
+  isEdit: boolean;
+  id: string;
+}
 
 const editSlice = createSlice({
-  name: 'isEdit',
+  name: 'edit',
   initialState,
   reducers: {
-    toggleIsEdit: (state, action: PayloadAction<boolean>) => {
-      state = action.payload;
+    toggleIsEdit: (state, action: PayloadAction<Edit>) => {
+      state.isEdit = action.payload.isEdit;
+      state.id = action.payload.id;
     },
   },
 });
