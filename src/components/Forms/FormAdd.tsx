@@ -20,20 +20,31 @@ interface Task {
   completed: boolean;
 }
 
+const options = {
+  low: 'Низкий',
+  medium: 'Средний',
+  high: 'Высокий',
+}
+
 const FormAdd: React.FC = () => {
-  const [inputValue, setInputText] = useState('');
-  const [textAreaValue, setTextAreaValue] = useState('');
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+  const [taskPriority, setPriority] = useState<'low' | 'medium' | 'high'>('low')
 
   const todoList = useSelector((state: RootState) => state);
   const dispatch = useDispatch<AppDispatch>();
 
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputText(e.target.value);
+    setTaskName(e.target.value);
   };
 
   const handleTextAreaValue = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    setTextAreaValue(e.target.value);
+    setTaskDescription(e.target.value);
   };
+
+  const handlePriority = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setPriority(e.target.value as 'low' | 'medium' | 'high');
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,14 +52,14 @@ const FormAdd: React.FC = () => {
     const task: Task = {
       id: uuidv4(),
       date,
-      priority: '',
-      name: inputValue,
-      description: textAreaValue,
+      priority: taskPriority,
+      name: taskName,
+      description: taskDescription,
       completed: false,
     };
     dispatch(addTodo(task));
-    setInputText('');
-    setTextAreaValue('');
+    setTaskName('');
+    setTaskDescription('');
   };
 
   return (
@@ -56,19 +67,23 @@ const FormAdd: React.FC = () => {
       <form>
         <h6>Название:</h6>
         <InputText
-          value={inputValue}
+          value={taskName}
           handleChange={handleInputValue}
         />
         <TextAreaWrap>
           <h6>Описание:</h6>
           <TextArea
-            value={textAreaValue}
+            value={taskDescription}
             handleChange={handleTextAreaValue}
           />
         </TextAreaWrap>
         <h6>Приоритет:</h6>
         <FormFooter>
-          <SelectPriority />
+          <SelectPriority
+            value={taskPriority}
+            options={options}
+            handleChange={handlePriority}
+          />
           <Button
             type={'primary'}
             text={'Добавить задачу'}

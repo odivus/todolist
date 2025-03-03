@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from '../Ui/Select/Select';
 
-const SelectPriority: React.FC = () => {
-  const [priority, setPriority] = useState<'low' | 'medium' | 'high'>('low')
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPriority(e.target.value as 'low' | 'medium' | 'high');
-  }
+interface SelectPriorityProps {
+  value: string;
+  options: {};
+  handleChange: (e: React.ChangeEvent<HTMLSelectElement>)=> void;
+}
 
-  const options = {
-    low: 'Низкий',
-    medium: 'Средний',
-    high: 'Высокий',
-  }
-
+const SelectPriority: React.FC<SelectPriorityProps> = ({ value, options, handleChange })=> {
   return (
     <Select
-      value={priority}
+      value={value}
       options={options}
       handleChange={handleChange}
     />
