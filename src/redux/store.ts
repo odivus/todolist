@@ -1,8 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import todosReducer from "./todoSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import todosReducer from './todoSlice';
+import popupReducer from './popupSlice';
 
 export const store = configureStore({
-  reducer: todosReducer,
+  reducer: {
+    todos: todosReducer,
+    popup: popupReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;

@@ -6,7 +6,7 @@ import Control from '../Control/Control';
 import ListItem from '../ListItem/ListItem';
 
 const ShowTodos: React.FC = () => {
-  const todos = useSelector((state: RootState) => state);
+  const todos = useSelector((state: RootState) => state.todos);
 
   if (todos.length === 0) {
     return null;
