@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import { addTodo, removeTodo, setTodoStatus } from '../../redux/todoSlice';
+import { AppDispatch } from '../../redux/store';
+import { addTodo } from '../../redux/todoSlice';
 import { v4 as uuidv4 } from 'uuid';
 import InputText from '../InputText/InputText';
 import TextArea from '../TextArea/TextArea';
