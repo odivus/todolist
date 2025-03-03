@@ -26,7 +26,7 @@ const options = {
   high: 'Высокий',
 }
 
-const FormAdd: React.FC = () => {
+const AddTodo: React.FC = () => {
   const [taskName, setTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [taskPriority, setPriority] = useState<'low' | 'medium' | 'high'>('low')
@@ -95,4 +95,4 @@ const FormAdd: React.FC = () => {
   );
 }
 
-export default FormAdd;
+export default AddTodo;

@@ -5,7 +5,7 @@ import SelectPriority from '../SelectPriority/SelectPriority'
 import Button from '../Ui/Button/Button';
 import { FormWrap, TextAreaWrap, FormFooter } from './styles.js';
 
-const FormEdit: React.FC = () => {
+const EditTodo: React.FC = () => {
   return (
     <FormWrap>
       <form>
@@ -34,4 +34,4 @@ const FormEdit: React.FC = () => {
   );
 }
 
-export default FormEdit;
+export default EditTodo;

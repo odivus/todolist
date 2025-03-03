@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import FormAdd from './components/Forms/FormAdd';
+import AddTodo from './components/Forms/AddTodo';
 import ListItem from './components/ListItem/ListItem';
 import Control from './components/Control/Control';
 import PopUp from './components/Ui/PopUp/PopUp';
@@ -21,7 +21,7 @@ const App: React.FC = () => (
     {/*<PopUp />*/}
     <Wrap>
       <h2>Добавление задач</h2>
-      <FormAdd />
+      <AddTodo />
       <h2 style={{marginTop: '34px'}}>Задачи</h2>
       <Control />
       <ListItem />
