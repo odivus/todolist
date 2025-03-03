@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+
 import AddTodo from './components/Forms/AddTodo';
 import ListItem from './components/ListItem/ListItem';
 import Control from './components/Control/Control';
 import PopUp from './components/Ui/PopUp/PopUp';
+import ShowTodos from './components/ShowTodos/ShowTodos'
+
 import styled from 'styled-components';
 import './style.css';
 
@@ -22,9 +25,7 @@ const App: React.FC = () => (
     <Wrap>
       <h2>Добавление задач</h2>
       <AddTodo />
-      <h2 style={{marginTop: '34px'}}>Задачи</h2>
-      <Control />
-      <ListItem />
+      <ShowTodos />
     </Wrap>
   </>
 );

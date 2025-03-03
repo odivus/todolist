@@ -4,6 +4,14 @@ import Edit from '../Ui/Edit/Edit';
 import Delete from '../Ui/Delete/Delete';
 import styled from 'styled-components';
 
+interface ListItemProps {
+  date: string;
+  priority: string;
+  name: string;
+  description: string;
+  completed: boolean;
+}
+
 const ListItemWrap = styled.div`
   display: flex;
   width: 440px;
@@ -42,15 +50,23 @@ const Description = styled.div`
   margin-top: 8px;
 `;
 
-const ListItem: React.FC = () => {
+const ListItem: React.FC<ListItemProps> = (props) => {
+  const {
+    name,
+    date,
+    priority,
+    description,
+    completed,
+  } = props;
+
   return (
     <ListItemWrap>
-      <Checkbox />
+      <Checkbox completed={completed} />
       <ContentWrap>
-        <Header>Задача номер один</Header>
-        <Date>27.02.2025 19:09</Date>
-        <Priority>Приоритет: низкий</Priority>
-        <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis, enim eu luctus eleifend, massa arcu ultrices neque, et mollis magna massa sit amet est.</Description>
+        <Header>{name}</Header>
+        <Date>{date}</Date>
+        <Priority>{priority}</Priority>
+        <Description>{description}</Description>
       </ContentWrap>
       <IconsWrap>
         <Edit />
