@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -15,13 +15,12 @@ const StyledInput = styled.input`
   }
 `;
 
-const InputText: React.FC = () => {
-  const [value, setValue] = useState('');
+interface InputTextProps {
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setValue(e. target.value);
-  };
-
+const InputText: React.FC<InputTextProps> = ({ value, handleChange }) => {
   return (
     <StyledInput
       type='text'

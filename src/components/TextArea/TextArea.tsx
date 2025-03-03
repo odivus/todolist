@@ -15,13 +15,12 @@ const StyledTextArea = styled.textarea`
   }
 `;
 
-const TextArea: React.FC = () => {
-  const [value, setValue] = useState('');
+interface TextAreaProps {
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    setValue(e.target.value);
-  };
-
+const TextArea: React.FC<TextAreaProps> = ({ value, handleChange }) => {
   return (
     <StyledTextArea
       id='description'
