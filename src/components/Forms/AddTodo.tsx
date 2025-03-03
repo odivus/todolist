@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
 import { addTodo, removeTodo, setTodoStatus } from '../../redux/todoSlice';
 import { v4 as uuidv4 } from 'uuid';
@@ -31,7 +31,6 @@ const AddTodo: React.FC = () => {
   const [taskDescription, setTaskDescription] = useState('');
   const [taskPriority, setPriority] = useState<'low' | 'medium' | 'high'>('low')
 
-  const todoList = useSelector((state: RootState) => state);
   const dispatch = useDispatch<AppDispatch>();
 
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -52,7 +51,7 @@ const AddTodo: React.FC = () => {
     const task: Task = {
       id: uuidv4(),
       date,
-      priority: taskPriority,
+      priority: options[taskPriority],
       name: taskName,
       description: taskDescription,
       completed: false,
