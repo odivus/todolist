@@ -1,11 +1,20 @@
 import React from 'react';
 
-const Checkbox: React.FC = () => {
+interface CheckboxProps {
+  completed: boolean;
+}
+
+const Checkbox: React.FC<CheckboxProps> = ({ completed }) => {
+  const checkedAtr = completed ? 'checked' : '';
   return (
     <label>
-      <input type='checkbox' name='checkbox' style={{ cursor: 'pointer' }} />
+      <input
+        type="checkbox"
+        name="checkbox"
+        style={{ cursor: 'pointer' }} />
+        {checkedAtr}
     </label>
-  );
+  )
 }
 
 export default Checkbox;
