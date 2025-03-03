@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -21,8 +21,16 @@ interface InputTextProps {
 }
 
 const InputText: React.FC<InputTextProps> = ({ value, handleChange }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <StyledInput
+      ref={inputRef}
       type='text'
       id='name'
       name='name'
