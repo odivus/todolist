@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import InputText from '../Ui/InputText/InputText';
-import TextArea from '../Ui/TextArea/TextArea';
+import InputText from '../InputText/InputText';
+import TextArea from '../TextArea/TextArea';
 import SelectPriority from '../SelectPriority/SelectPriority'
 import Button from '../Ui/Button/Button';
 import { FormWrap, TextAreaWrap, FormFooter } from './styles.js';
