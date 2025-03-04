@@ -26,13 +26,21 @@ const Select: React.FC<SelectProps> = ({ value, options, handleChange }) => {
   return (
     <StyledSelect
       value={value}
+      // defaultValue={value}
       size={1}
       onChange={handleChange}
     >
       {
-        optionsKeys.map((item) => (
-          <option key={item} value={item}>{options[item]}</option>
-        ))
+        optionsKeys.map((item) => {
+          return (
+            <option
+              key={item}
+              value={item}
+            >
+              {options[item]}
+            </option>
+          )
+        })
       }
     </StyledSelect>
   );

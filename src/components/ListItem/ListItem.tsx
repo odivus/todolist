@@ -53,7 +53,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
       <ContentWrap>
         <Header completed={completed}>{name}</Header>
         <Date>{date}</Date>
-        <Priority>{priority}</Priority>
+        <Priority><span style={{fontWeight: 'normal'}}>Приоритет:&nbsp;</span>{priority}</Priority>
         <Description>{description}</Description>
       </ContentWrap>
       <IconsWrap>

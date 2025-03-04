@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store'
+
 import EditTodo from '../../Forms/EditTodo';
 import styled from 'styled-components';
 
-const StyledPopUp = styled.div`
+interface PopUpType {
+  isEdit: boolean;
+}
+
+const StyledPopUp = styled.div<PopUpType>`
+  display: ${({ isEdit }) => (isEdit ? 'flex' : 'none')};
   position: absolute;
   top: 0;
   bottom: 0;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -18,9 +25,12 @@ const StyledPopUp = styled.div`
 `;
 
 const PopUp: React.FC = () => {
+  const edit = useSelector((state: RootState) => state.edit);
+  const { isEdit, id } = edit;
+
   return (
-    <StyledPopUp>
-      <EditTodo />
+    <StyledPopUp isEdit={isEdit}>
+      <EditTodo id={id} />
     </StyledPopUp>
   );
 }

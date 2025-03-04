@@ -5,7 +5,7 @@ const initialState = {
   id: '',
 };
 
-interface Edit{
+export interface Edit {
   isEdit: boolean;
   id: string;
 }

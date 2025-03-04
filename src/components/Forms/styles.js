@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const EditWrap = styled.div`
+  padding: 20px;
+  background-color: #f5f5f5;
+`;
+
 export const FormWrap = styled.div`
   display: flex;
   flex-direction: column;

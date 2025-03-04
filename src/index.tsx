@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
 import AddTodo from './components/Forms/AddTodo';
-import ListItem from './components/ListItem/ListItem';
-import Control from './components/Control/Control';
 import PopUp from './components/Ui/PopUp/PopUp';
 import ShowTodos from './components/ShowTodos/ShowTodos'
 
@@ -21,7 +19,7 @@ const Wrap = styled.div`
 
 const App: React.FC = () => (
   <>
-    {/*<PopUp />*/}
+    <PopUp />
     <Wrap>
       <h2>Добавление задач</h2>
       <AddTodo />

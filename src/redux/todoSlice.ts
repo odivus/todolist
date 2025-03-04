@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Todo {
+export interface Todo {
   id: string;
   date: string;
   priority: string;
@@ -18,6 +18,12 @@ const todoSlice = createSlice({
     addTodo: (state, action: PayloadAction<Todo>) => {
       state.push(action.payload);
     },
+    editTodo: (state, action: PayloadAction<Todo>) => {
+      const index = state.findIndex((item) => item.id === action.payload.id);
+      if (index !== -1) {
+        state[index] = { ...state[index], ...action.payload };
+      }
+    },
     removeTodo: (state, action: PayloadAction<string>)=> {
       const index = state.findIndex((todo) => todo.id === action.payload);
       state.splice(index, 1);
@@ -32,5 +38,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, removeTodo, setTodoStatus } = todoSlice.actions;
+export const { addTodo, editTodo, removeTodo, setTodoStatus } = todoSlice.actions;
 export default todoSlice.reducer;
