@@ -7,12 +7,19 @@ import TextArea from '../TextArea/TextArea';
 import SelectPriority from '../SelectPriority/SelectPriority'
 import Button from '../Ui/Button/Button';
 
-import { editTodo, Todo } from '../../redux/todoSlice';
+import { editTodo } from '../../redux/todoSlice';
 import { toggleIsEdit, Edit } from '../../redux/editSlice';
 import { FormWrap, TextAreaWrap, FormFooter, EditWrap } from './styles.js'
 
 interface EditTodoProps {
   id: string;
+}
+
+interface EditTodo {
+  id: string;
+  priority: string;
+  name:  string;
+  description:  string;
 }
 
 const options = {
@@ -62,7 +69,7 @@ const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const task: Todo = {
+    const task: EditTodo = {
       id: id,
       priority: taskPriority,
       name: taskName,
