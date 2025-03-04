@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
 import Select from '../Ui/Select/Select'
 import styled from 'styled-components'
+import { sortByDate } from '../../redux/todoSlice'
 
 const SelectSort: React.FC = () => {
-  const [date, setDate] = useState<'new' | 'old'>('new')
+  const [date, setDate] = useState<'new' | 'old'>('old');
+  const dispatch = useDispatch();
+
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const dateType = {
+      date: date,
+    }
     setDate(e.target.value as 'new' | 'old');
+    dispatch(sortByDate(dateType));
   }
 
   const options = {
-    new: 'Сначала новые',
     old: 'Сначала старые',
+    new: 'Сначала новые',
   }
 
   const SelectSortWrap = styled.div`

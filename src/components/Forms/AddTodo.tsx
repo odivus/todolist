@@ -13,7 +13,7 @@ import { FormWrap, TextAreaWrap, FormFooter } from './styles.js';
 
 interface Task {
   id: string;
-  date: string;
+  date: number;
   priority: string;
   name: string;
   description: string;
@@ -47,10 +47,9 @@ const AddTodo: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const date = (`${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`).replace(/:\d{2}$/, '')
     const task: Task = {
       id: uuidv4(),
-      date,
+      date: Date.now(),
       priority: options[taskPriority],
       name: taskName,
       description: taskDescription,

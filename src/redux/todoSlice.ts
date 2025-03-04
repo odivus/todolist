@@ -2,11 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Todo {
   id: string;
-  date: string;
+  date: number;
   priority: string;
   name: string;
   description: string;
   completed: boolean;
+}
+
+interface Date {
+  date: 'new' | 'old';
 }
 
 const initialState = [] as Todo[];
@@ -35,8 +39,22 @@ const todoSlice = createSlice({
       const index = state.findIndex((todo) => todo.id === action.payload.id);
       state[index].completed = action.payload.completed;
     },
+    sortByDate: (state, action: PayloadAction<Date>)=> {
+      const date = action.payload.date;
+      if (date === 'new') {
+        state.sort((a, b) => a.date - b.date);
+      } else {
+        state.sort((a, b) => b.date - a.date);
+      }
+    },
   },
 });
 
-export const { addTodo, editTodo, removeTodo, setTodoStatus } = todoSlice.actions;
+export const {
+  addTodo,
+  editTodo,
+  removeTodo,
+  setTodoStatus,
+  sortByDate,
+} = todoSlice.actions;
 export default todoSlice.reducer;
