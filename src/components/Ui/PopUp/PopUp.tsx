@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store'
 
@@ -11,7 +11,7 @@ interface PopUpType {
 
 const StyledPopUp = styled.div<PopUpType>`
   display: ${({ isEdit }) => (isEdit ? 'flex' : 'none')};
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   flex-direction: column;
@@ -27,6 +27,17 @@ const StyledPopUp = styled.div<PopUpType>`
 const PopUp: React.FC = () => {
   const edit = useSelector((state: RootState) => state.edit);
   const { isEdit, id } = edit;
+
+  useEffect(() => {
+    if (isEdit) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isEdit]);
 
   return (
     <StyledPopUp isEdit={isEdit}>
