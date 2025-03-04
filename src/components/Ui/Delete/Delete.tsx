@@ -9,9 +9,18 @@ const StyledImg = styled.img`
   cursor: pointer;
 `;
 
-const Delete: React.FC = () => {
+interface EditProps {
+  onClick: (e: React.MouseEvent<HTMLImageElement>) => void;
+}
+
+const Delete: React.FC<EditProps> = ({ onClick }) => {
   return (
-    <StyledImg src={edit} alt='Удалить' title='Удалить' />
+    <StyledImg
+      src={edit}
+      alt='Удалить'
+      title='Удалить'
+      onClick={onClick}
+    />
   );
 }
 

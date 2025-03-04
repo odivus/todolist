@@ -35,6 +35,9 @@ const ListItem: React.FC<ListItemProps> = (props) => {
       setTodoStatus({ completed: !completed, id: id })
     );
   }
+  const handleRemove = () => {
+    dispatch(removeTodo(id));
+  }
 
   const handleEdit = () => {
     const edit: EditData = {
@@ -58,7 +61,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
       </ContentWrap>
       <IconsWrap>
         <Edit onClick={handleEdit} />
-        <Delete />
+        <Delete onClick={handleRemove} />
       </IconsWrap>
     </ListItemWrap>
   )
