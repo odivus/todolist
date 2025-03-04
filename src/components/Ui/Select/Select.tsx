@@ -31,7 +31,7 @@ const Select: React.FC<SelectProps> = ({ value, options, handleChange }) => {
       onChange={handleChange}
     >
       {
-        optionsKeys.map((item) => {
+        optionsKeys.map((item, idx) => {
           return (
             <option
               key={item}

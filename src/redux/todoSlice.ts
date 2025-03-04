@@ -9,8 +9,12 @@ interface Todo {
   completed: boolean;
 }
 
-interface Date {
+interface Sort {
   date: 'new' | 'old';
+}
+
+interface Filter {
+  priority: 'all'|'low' | 'medium' | 'high';
 }
 
 const initialState = [] as Todo[];
@@ -39,12 +43,31 @@ const todoSlice = createSlice({
       const index = state.findIndex((todo) => todo.id === action.payload.id);
       state[index].completed = action.payload.completed;
     },
-    sortByDate: (state, action: PayloadAction<Date>)=> {
+    sortByDate: (state, action: PayloadAction<Sort>)=> {
       const date = action.payload.date;
       if (date === 'new') {
-        state.sort((a, b) => a.date - b.date);
-      } else {
         state.sort((a, b) => b.date - a.date);
+      } else {
+        state.sort((a, b) => a.date - b.date);
+      }
+    },
+    filterByPriority: (state, action: PayloadAction<Filter>)=> {
+      const priority = action.payload.priority;
+      if (priority === 'all') {
+        return state;
+      } else {
+        state = state.filter((todo) => {
+          switch (priority) {
+            case 'low':
+              return todo.priority === 'Низкий';
+            case 'medium':
+              return todo.priority === 'Средний';
+            case 'high':
+              return todo.priority === 'Высокий';
+            default:
+              return false;
+          }
+        });
       }
     },
   },
@@ -56,5 +79,6 @@ export const {
   removeTodo,
   setTodoStatus,
   sortByDate,
+  filterByPriority,
 } = todoSlice.actions;
 export default todoSlice.reducer;

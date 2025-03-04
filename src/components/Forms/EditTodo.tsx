@@ -94,38 +94,36 @@ const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
     <EditWrap>
       <h2 style={{marginTop: 0}}>Редактирование задачи</h2>
       <FormWrap>
-        <form>
-          <h6>Название:</h6>
-          <InputText
-            value={taskName}
-            handleChange={handleInputValue}
+        <h6>Название:</h6>
+        <InputText
+          value={taskName}
+          handleChange={handleInputValue}
+        />
+        <TextAreaWrap>
+          <h6>Описание:</h6>
+          <TextArea
+            value={taskDescription}
+            handleChange={handleTextAreaValue}
           />
-          <TextAreaWrap>
-            <h6>Описание:</h6>
-            <TextArea
-              value={taskDescription}
-              handleChange={handleTextAreaValue}
-            />
-          </TextAreaWrap>
-          <h6>Приоритет:</h6>
-          <FormFooter>
-            <SelectPriority
-              value={taskPriority}
-              options={options}
-              handleChange={handlePriority}
-            />
-            <Button
-              type={'primary'}
-              text={'Сохранить'}
-              handleClick={handleSubmit}
-            />
-            <Button
-              type={'secondary'}
-              text={'Отмена'}
-              handleClick={handleCancel}
-            />
-          </FormFooter>
-        </form>
+        </TextAreaWrap>
+        <h6>Приоритет:</h6>
+        <FormFooter>
+          <SelectPriority
+            value={taskPriority}
+            options={options}
+            handleChange={handlePriority}
+          />
+          <Button
+            type={'primary'}
+            text={'Сохранить'}
+            handleClick={handleSubmit}
+          />
+          <Button
+            type={'secondary'}
+            text={'Отмена'}
+            handleClick={handleCancel}
+          />
+        </FormFooter>
       </FormWrap>
     </EditWrap>
   );
