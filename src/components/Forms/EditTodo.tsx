@@ -53,7 +53,7 @@ const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
   };
 
   const handlePriority = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPriority(options[e.target.value as 'low' | 'medium' | 'high']);
+    setPriority(e.target.value as 'low' | 'medium' | 'high');
   }
 
   const handleCancel = (e: React.FormEvent) => {
@@ -110,6 +110,7 @@ const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
         <FormFooter>
           <SelectPriority
             value={taskPriority}
+            isDefaultValue={true}
             options={options}
             handleChange={handlePriority}
           />

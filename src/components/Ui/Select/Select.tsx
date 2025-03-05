@@ -1,7 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledSelect = styled.select`
+interface StyledSelectProps {
+  isdefaultvalue: string;
+  value: string;
+}
+
+const StyledSelect = styled.select.attrs<StyledSelectProps>(props => {
+  const { value, isdefaultvalue } = props;
+  if (isdefaultvalue === 'true') {
+    return {
+      defaultValue: value,
+    }
+  }
+})`
   border: 2px solid #c8c8c8;
   border-radius: 4px;
   padding: 4px 8px;
@@ -14,24 +26,27 @@ const StyledSelect = styled.select`
 interface SelectProps {
   value: string;
   options: { [key: string]: string };
-  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  isDefaultValue: boolean;
+  handleChange: () => void;
 }
 
-const Select: React.FC<SelectProps> = ({ value, options, handleChange }) => {
+const Select: React.FC<SelectProps> = (props) => {
+  const { options, isDefaultValue, value, handleChange } = props;
   const optionsKeys = Object.keys(options);
+
   if (optionsKeys.length === 0) {
     return null;
   }
 
   return (
     <StyledSelect
+      isdefaultvalue={isDefaultValue ? 'true' : 'false'}
       value={value}
-      // defaultValue={value}
       size={1}
       onChange={handleChange}
     >
       {
-        optionsKeys.map((item, idx) => {
+        optionsKeys.map((item) => {
           return (
             <option
               key={item}

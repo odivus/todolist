@@ -59,11 +59,11 @@ const todoSlice = createSlice({
         return state.filter((todo) => {
           switch (priority) {
             case 'low':
-              return todo.priority === 'Низкий';
+              return todo.priority === 'low';
             case 'medium':
-              return todo.priority === 'Средний';
+              return todo.priority === 'medium';
             case 'high':
-              return todo.priority === 'Высокий';
+              return todo.priority === 'high';
             default:
               return false;
           }

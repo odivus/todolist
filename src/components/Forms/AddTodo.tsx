@@ -50,7 +50,7 @@ const AddTodo: React.FC = () => {
     const task: Task = {
       id: uuidv4(),
       date: Date.now(),
-      priority: options[taskPriority],
+      priority: taskPriority,
       name: taskName,
       description: taskDescription,
       completed: false,
@@ -58,6 +58,7 @@ const AddTodo: React.FC = () => {
     dispatch(addTodo(task));
     setTaskName('');
     setTaskDescription('');
+    setPriority('low');
   };
 
   return (
@@ -78,6 +79,7 @@ const AddTodo: React.FC = () => {
         <h6>Приоритет:</h6>
         <FormFooter>
           <SelectPriority
+            isDefaultValue={false}
             value={taskPriority}
             options={options}
             handleChange={handlePriority}

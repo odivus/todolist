@@ -8,52 +8,52 @@ export const data: DataItem[] = [
   {
     name: 'Создание адаптивного дизайна',
     description: 'Разработать адаптивный дизайн для сайта',
-    priority: 'Низкий',
+    priority: 'low',
   },
   {
     name: 'Реализация авторизации',
     description: 'Создать систему авторизации пользователей',
-    priority: 'Средний',
+    priority: 'medium',
   },
   {
     name: 'Оптимизация производительности',
     description: 'Провести оптимизацию кода и ресурсов для улучшения скорости загрузки страниц',
-    priority: 'Высокий',
+    priority: 'high',
   },
   {
     name: 'Разработка компонента календаря',
     description: 'Создать компонент календаря',
-    priority: 'Низкий',
+    priority: 'low',
   },
   {
     name: 'Интеграция с API',
     description: 'Настроить запросы к API',
-    priority: 'Средний',
+    priority: 'medium',
   },
   {
     name: 'Реализация поиска по сайту',
     description: 'Создать функцию поиска по содержимому сайта с фильтрацией результатов',
-    priority: 'Средний',
+    priority: 'medium',
   },
   {
     name: 'Создание модального окна',
     description: 'Разработать модальное окно',
-    priority: 'Низкий',
+    priority: 'low',
   },
   {
     name: 'Реализация drag-and-drop',
     description: 'Внедрить функцию перетаскивания элементов на странице',
-    priority: 'Низкий',
+    priority: 'low',
   },
   {
     name: 'Настройка анимаций и переходов',
     description: 'Добавить анимации и переходы',
-    priority: 'Низкий',
+    priority: 'low',
   },
   {
     name: 'Тестирование и отладка',
     description: 'Провести тестирование и отладку кода',
-    priority: 'Высокий',
+    priority: 'high',
   },
 ];
 

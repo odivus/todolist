@@ -7,7 +7,7 @@ import { toggleIsEdit } from '../../redux/editSlice';
 import Edit from '../Ui/Edit/Edit';
 import Checkbox from '../Ui/Checkbox/Checkbox';
 import Delete from '../Ui/Delete/Delete';
-import { convertDate } from './helpers';
+import { convertDate, convertPriority } from './helpers';
 
 import { ListItemProps, EditData } from './interfaces';
 import {
@@ -32,6 +32,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
   } = props;
 
   const convertedDate = convertDate(date);
+  const convertedPriority = convertPriority(priority);
 
   const toggleCompleted = () => {
     dispatch(
@@ -59,7 +60,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
       <ContentWrap>
         <Header completed={completed}>{name}</Header>
         <Date>{convertedDate}</Date>
-        <Priority><span style={{fontWeight: 'normal'}}>Приоритет:&nbsp;</span>{priority}</Priority>
+        <Priority><span style={{fontWeight: 'normal'}}>Приоритет:&nbsp;</span>{convertedPriority}</Priority>
         <Description>{description}</Description>
       </ContentWrap>
       <IconsWrap>

@@ -1,6 +1,6 @@
 export interface ListItemProps {
   id: string;
-  date: string;
+  date: number;
   priority: string;
   name: string;
   description: string;

@@ -5,3 +5,13 @@ export function convertDate(date) {
 
   return `${formattedDate} ${formattedTime}`;
 }
+
+export function convertPriority(priority) {
+  const data = {
+    low: 'Низкий',
+    medium: 'Средний',
+    high: 'Высокий'
+  }
+
+  return data[priority];
+}
