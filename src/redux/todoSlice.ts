@@ -9,6 +9,13 @@ interface Todo {
   completed: boolean;
 }
 
+interface EditTodo {
+  id: string;
+  priority: string;
+  name:  string;
+  description:  string;
+}
+
 interface Sort {
   date: 'new' | 'old';
 }
@@ -26,7 +33,7 @@ const todoSlice = createSlice({
     addTodo: (state, action: PayloadAction<Todo>) => {
       state.push(action.payload);
     },
-    editTodo: (state, action: PayloadAction<Todo>) => {
+    editTodo: (state, action: PayloadAction<EditTodo>) => {
       const index = state.findIndex((item) => item.id === action.payload.id);
       if (index !== -1) {
         state[index] = { ...state[index], ...action.payload };

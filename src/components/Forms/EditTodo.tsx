@@ -15,13 +15,6 @@ interface EditTodoProps {
   id: string;
 }
 
-interface EditTodo {
-  id: string;
-  priority: string;
-  name:  string;
-  description:  string;
-}
-
 const options = {
   low: 'Низкий',
   medium: 'Средний',
@@ -58,7 +51,7 @@ const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
 
   const handleCancel = (e: React.FormEvent) => {
     e.preventDefault();
-    const edit: Edit = {
+    const edit = {
       isEdit: false,
       id: id,
     }
@@ -69,7 +62,7 @@ const EditTodo: React.FC<EditTodoProps> = ({ id }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const task: EditTodo = {
+    const task = {
       id: id,
       priority: taskPriority,
       name: taskName,
