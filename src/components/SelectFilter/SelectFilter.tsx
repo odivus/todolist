@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Select from '../Ui/Select/Select'
-import { filterByPriority, sortByDate } from '../../redux/todoSlice'
-import styled from 'styled-components'
+import { filterByPriority } from '../../redux/todoSlice'
 
 const SelectFilter: React.FC = () => {
   const [priority, setPriority] = useState<'all'|'low' | 'medium' | 'high'>('all');
@@ -25,12 +24,6 @@ const SelectFilter: React.FC = () => {
     medium: 'Средний',
     high: 'Высокий',
   }
-
-  const Wrap = styled.div`
-    display: flex;
-    height: fit-content;
-    flex-direction: column;
-`;
 
   return (
     <div>
