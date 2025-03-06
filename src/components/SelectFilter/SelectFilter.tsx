@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Select from '../Ui/Select/Select'
 import { filterByPriority, sortByDate } from '../../redux/todoSlice'
-import ButtonControl from '../Ui/ButtonControl/ButtonControl'
 import styled from 'styled-components'
 
 const SelectFilter: React.FC = () => {
@@ -13,12 +12,12 @@ const SelectFilter: React.FC = () => {
     setPriority(e.target.value as 'all'|'low' | 'medium' | 'high');
   }
 
-  const handleSubmit = () => {
+  useEffect(() => {
     const priorityType = {
       priority: priority,
     }
     dispatch(filterByPriority(priorityType));
-  }
+  }, [priority]);
 
   const options = {
     all: 'Все',
@@ -35,13 +34,13 @@ const SelectFilter: React.FC = () => {
 
   return (
     <div>
-      <h6>Фильтр по&nbsp;приоритету:</h6>
+      <h5>Фильтровать</h5>
+      <h6>По&nbsp;приоритету:</h6>
       <Select
         value={priority}
         options={options}
         handleChange={handleChange}
       />
-      <ButtonControl onClick={handleSubmit} />
     </div>
   );
 }

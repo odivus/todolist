@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Select from '../Ui/Select/Select'
-import ButtonControl from '../Ui/ButtonControl/ButtonControl'
 import { sortByDate } from '../../redux/todoSlice'
 import styled from 'styled-components'
 
@@ -13,12 +12,12 @@ const SelectSort: React.FC = () => {
     setDate(e.target.value as 'new' | 'old');
   }
 
-  const handleSubmit = () => {
+  useEffect(() => {
     const dateType = {
       date: date,
     }
     dispatch(sortByDate(dateType));
-  }
+  }, [date]);
 
   const options = {
     old: 'Сначала старые',
@@ -31,13 +30,13 @@ const SelectSort: React.FC = () => {
 
   return (
     <SelectSortWrap>
-      <h6>Сортировка по&nbsp;дате:</h6>
+      <h5>Сортировать</h5>
+      <h6>По&nbsp;дате:</h6>
       <Select
         value={date}
         options={options}
         handleChange={handleChange}
       />
-      <ButtonControl onClick={handleSubmit} />
     </SelectSortWrap>
   );
 }
