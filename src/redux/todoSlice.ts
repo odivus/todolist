@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, current } from '@reduxjs/toolkit';
 
 interface Todo {
   id: string;
@@ -52,7 +52,14 @@ const todoSlice = createSlice({
       }
     },
     filterByPriority: (state, action: PayloadAction<Filter>)=> {
+      const currentState = current(state);
       const priority = action.payload.priority;
+      const index = currentState.findIndex((todo) => todo.priority === priority);
+
+      if (index === -1) {
+        return;
+      }
+
       if (priority === 'all') {
         return state;
       } else {
