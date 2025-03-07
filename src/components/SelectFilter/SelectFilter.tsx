@@ -31,6 +31,7 @@ const SelectFilter: React.FC = () => {
       <h6>По&nbsp;приоритету:</h6>
       <Select
         value={priority}
+        isDefaultValue={false}
         options={options}
         handleChange={handleChange}
       />
