@@ -35,6 +35,7 @@ const SelectSort: React.FC = () => {
       <Select
         value={date}
         options={options}
+        isDefaultValue={false}
         handleChange={handleChange}
       />
     </SelectSortWrap>

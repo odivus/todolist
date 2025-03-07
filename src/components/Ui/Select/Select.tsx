@@ -6,13 +6,9 @@ interface StyledSelectProps {
   value: string;
 }
 
-const StyledSelect = styled.select.attrs<StyledSelectProps>(props => {
+const StyledSelect = styled.select.attrs<StyledSelectProps>((props) => {
   const { value, isdefaultvalue } = props;
-  if (isdefaultvalue === 'true') {
-    return {
-      defaultValue: value,
-    }
-  }
+  return isdefaultvalue ? { defaultValue: value } : {};
 })`
   border: 2px solid #c8c8c8;
   border-radius: 4px;
@@ -27,7 +23,7 @@ interface SelectProps {
   value: string;
   options: { [key: string]: string };
   isDefaultValue: boolean;
-  handleChange: () => void;
+  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const Select: React.FC<SelectProps> = (props) => {
